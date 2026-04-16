@@ -1,0 +1,9 @@
+general-reference/<TriggerVar ID="280" Type="Player" Name=.html
+docs/session-notes/2026-03-26-trigger-primitives.md
+docs/session-notes/working-prototype.md
+general-reference/┌─ Trigger 46: GrantStartResources \[ONCE
+general-reference/forerunner-objects.xml
+general-reference/marines-objects.xml
+modes/.DS_Store
+ctf-reference/capflagplayer.triggerscript
+ctf-reference/capflagworld.triggerscript
