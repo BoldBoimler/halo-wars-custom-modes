@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<TriggerSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CapFlagWorld.triggerscript" Type="TriggerScript" NextTriggerVarID="2058" NextTriggerID="260" NextConditionID="185" NextEffectID="680" External="false">
+<TriggerSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CapFlagWorld.triggerscript" Type="TriggerScript" NextTriggerVarID="2064" NextTriggerID="264" NextConditionID="187" NextEffectID="686" External="false">
 	<TriggerGroups>
 		<Group ID="0" Name="Crate Maker">2,3,4,22,23,24,25</Group>
 		<Group ID="1" Name="Creeps">12,13,14,32,33,34</Group>
@@ -983,9 +983,15 @@
 		<TriggerVar ID="2048" Type="String" Name="KotHSoundFile" IsNull="false">vog_gamemode_flagcapture</TriggerVar>
 		<TriggerVar ID="2050" Type="Unit" Name="KotHNullSetPosUnit" IsNull="true" />
 		<TriggerVar ID="2053" Type="Object" Name="KotHRevealerOut" IsNull="true" />
-		<TriggerVar ID="2054" Type="Integer" Name="KotHWinScore" IsNull="false">120</TriggerVar>
-		<TriggerVar ID="2055" Type="Trigger" Name="KotHP1WinCheckRef" IsNull="false">259</TriggerVar>
-		<TriggerVar ID="2056" Type="Trigger" Name="KotHP2WinCheckRef" IsNull="false">260</TriggerVar>
+		<TriggerVar ID="2054" Type="Integer" Name="KotHWinScore" IsNull="false">200</TriggerVar>
+		<TriggerVar ID="2055" Type="Trigger" Name="KotHT1WinCheckRef" IsNull="false">259</TriggerVar>
+		<TriggerVar ID="2056" Type="Trigger" Name="KotHT2WinCheckRef" IsNull="false">260</TriggerVar>
+		<TriggerVar ID="2058" Type="Iterator" Name="KotHWinnersIter" IsNull="false" />
+		<TriggerVar ID="2059" Type="Iterator" Name="KotHLosersIter" IsNull="false" />
+		<TriggerVar ID="2060" Type="Player" Name="KotHWinnerOut" IsNull="false" />
+		<TriggerVar ID="2061" Type="Player" Name="KotHLoserOut" IsNull="false" />
+		<TriggerVar ID="2062" Type="Trigger" Name="KotHWinnersLoopRef" IsNull="false">262</TriggerVar>
+		<TriggerVar ID="2063" Type="Trigger" Name="KotHLosersLoopRef" IsNull="false">263</TriggerVar>
 	</TriggerVars>
 	<Triggers>
 		<Trigger ID="1" Name="Start" Active="true" EvaluateFrequency="0" EvalLimit="0" CommentOut="false" ConditionalTrigger="false" X="78" Y="174" GroupID="-1" TemplateID="-1">
@@ -4203,12 +4209,12 @@
 			</TriggerEffectsOnTrue>
 			<TriggerEffectsOnFalse />
 		</Trigger>
-		<Trigger ID="251" Name="KotH P1 Score" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="500" Y="800" GroupID="-1" TemplateID="-1">
+		<Trigger ID="251" Name="KotH Team1 Score" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="500" Y="800" GroupID="-1" TemplateID="-1">
 			<TriggerConditions>
 				<And>
 					<Condition ID="170" Type="CanGetUnits" DBID="2" Version="6" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
-						<Input Name="FilterPlayer" SigID="3" Optional="true">2003</Input>
-						<Input Name="FilterPlayerList" SigID="10" Optional="true">2005</Input>
+						<Input Name="FilterPlayer" SigID="3" Optional="true">2</Input>
+						<Input Name="FilterPlayerList" SigID="10" Optional="true">356</Input>
 						<Input Name="FilterObjectType" SigID="4" Optional="true">2006</Input>
 						<Input Name="FilterLocation" SigID="1" Optional="true">2001</Input>
 						<Input Name="FilterDistance" SigID="2" Optional="true">2002</Input>
@@ -4242,12 +4248,12 @@
 			</TriggerEffectsOnTrue>
 			<TriggerEffectsOnFalse />
 		</Trigger>
-		<Trigger ID="252" Name="KotH P2 Score" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="500" Y="900" GroupID="-1" TemplateID="-1">
+		<Trigger ID="252" Name="KotH Team2 Score" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="500" Y="900" GroupID="-1" TemplateID="-1">
 			<TriggerConditions>
 				<And>
 					<Condition ID="171" Type="CanGetUnits" DBID="2" Version="6" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
-						<Input Name="FilterPlayer" SigID="3" Optional="true">2004</Input>
-						<Input Name="FilterPlayerList" SigID="10" Optional="true">2005</Input>
+						<Input Name="FilterPlayer" SigID="3" Optional="true">139</Input>
+						<Input Name="FilterPlayerList" SigID="10" Optional="true">358</Input>
 						<Input Name="FilterObjectType" SigID="4" Optional="true">2006</Input>
 						<Input Name="FilterLocation" SigID="1" Optional="true">2001</Input>
 						<Input Name="FilterDistance" SigID="2" Optional="true">2002</Input>
@@ -4506,7 +4512,7 @@
 			</TriggerEffectsOnTrue>
 			<TriggerEffectsOnFalse />
 		</Trigger>
-		<Trigger ID="259" Name="KotH P1 Win Check" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="700" Y="800" GroupID="-1" TemplateID="-1">
+		<Trigger ID="259" Name="KotH Team1 Win Check" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="700" Y="800" GroupID="-1" TemplateID="-1">
 			<TriggerConditions>
 				<And>
 					<Condition ID="183" Type="CompareInteger" DBID="14" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
@@ -4517,18 +4523,24 @@
 				</And>
 			</TriggerConditions>
 			<TriggerEffectsOnTrue>
-				<Effect ID="675" Type="SetPlayerState" DBID="130" Version="2" CommentOut="false">
-					<Input Name="Player" SigID="1" Optional="false">2003</Input>
-					<Input Name="PlayerState" SigID="3" Optional="false">489</Input>
+				<Effect ID="675" Type="IteratorPlayerList" DBID="120" Version="1" CommentOut="false">
+					<Input Name="PlayerList" SigID="1" Optional="false">356</Input>
+					<Output Name="InitializedIterator" SigID="2" Optional="false">2058</o>
 				</Effect>
-				<Effect ID="676" Type="SetPlayerState" DBID="130" Version="2" CommentOut="false">
-					<Input Name="Player" SigID="1" Optional="false">2004</Input>
-					<Input Name="PlayerState" SigID="3" Optional="false">239</Input>
+				<Effect ID="676" Type="IteratorPlayerList" DBID="120" Version="1" CommentOut="false">
+					<Input Name="PlayerList" SigID="1" Optional="false">358</Input>
+					<Output Name="InitializedIterator" SigID="2" Optional="false">2059</o>
+				</Effect>
+				<Effect ID="680" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2062</Input>
+				</Effect>
+				<Effect ID="681" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2063</Input>
 				</Effect>
 			</TriggerEffectsOnTrue>
 			<TriggerEffectsOnFalse />
 		</Trigger>
-		<Trigger ID="260" Name="KotH P2 Win Check" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="700" Y="900" GroupID="-1" TemplateID="-1">
+		<Trigger ID="260" Name="KotH Team2 Win Check" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="700" Y="900" GroupID="-1" TemplateID="-1">
 			<TriggerConditions>
 				<And>
 					<Condition ID="184" Type="CompareInteger" DBID="14" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
@@ -4539,12 +4551,52 @@
 				</And>
 			</TriggerConditions>
 			<TriggerEffectsOnTrue>
-				<Effect ID="677" Type="SetPlayerState" DBID="130" Version="2" CommentOut="false">
-					<Input Name="Player" SigID="1" Optional="false">2004</Input>
+				<Effect ID="677" Type="IteratorPlayerList" DBID="120" Version="1" CommentOut="false">
+					<Input Name="PlayerList" SigID="1" Optional="false">358</Input>
+					<Output Name="InitializedIterator" SigID="2" Optional="false">2058</o>
+				</Effect>
+				<Effect ID="678" Type="IteratorPlayerList" DBID="120" Version="1" CommentOut="false">
+					<Input Name="PlayerList" SigID="1" Optional="false">356</Input>
+					<Output Name="InitializedIterator" SigID="2" Optional="false">2059</o>
+				</Effect>
+				<Effect ID="682" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2062</Input>
+				</Effect>
+				<Effect ID="683" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2063</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="262" Name="KotH Winners Loop" Active="false" EvaluateFrequency="0" EvalLimit="0" CommentOut="false" ConditionalTrigger="true" X="900" Y="800" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="185" Type="NextPlayer" DBID="118" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="PlayerIterator" SigID="1" Optional="false">2058</Input>
+						<Output Name="NextPlayer" SigID="2" Optional="false">2060</o>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="684" Type="SetPlayerState" DBID="130" Version="2" CommentOut="false">
+					<Input Name="Player" SigID="1" Optional="false">2060</Input>
 					<Input Name="PlayerState" SigID="3" Optional="false">489</Input>
 				</Effect>
-				<Effect ID="678" Type="SetPlayerState" DBID="130" Version="2" CommentOut="false">
-					<Input Name="Player" SigID="1" Optional="false">2003</Input>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="263" Name="KotH Losers Loop" Active="false" EvaluateFrequency="0" EvalLimit="0" CommentOut="false" ConditionalTrigger="true" X="900" Y="900" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="186" Type="NextPlayer" DBID="118" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="PlayerIterator" SigID="1" Optional="false">2059</Input>
+						<Output Name="NextPlayer" SigID="2" Optional="false">2061</o>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="685" Type="SetPlayerState" DBID="130" Version="2" CommentOut="false">
+					<Input Name="Player" SigID="1" Optional="false">2061</Input>
 					<Input Name="PlayerState" SigID="3" Optional="false">239</Input>
 				</Effect>
 			</TriggerEffectsOnTrue>

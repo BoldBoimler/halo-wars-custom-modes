@@ -3,13 +3,14 @@
 ## Overview
 Classic Halo 2-style King of the Hill for Halo Wars DE. A single active zone rotates between positions on the map. Players score by keeping units in the active zone. Built on top of CTF game mode infrastructure for HUD and AI behavior.
 
-## Current Status (V1 — April 14, 2026)
+## Current Status (V1 — April 16, 2026)
 - **Working prototype** on Terminal Moraine with 2 rotating hills
 - Scoring works via hijacked CTF HUD (setCTFCount)
 - Hill rotates every 90 seconds with sound, message, and minimap flare notifications
 - Covenant doughnut (`cpgn_scn02_covdoughnut_01`) marks the active hill, moves via SetPosition
 - AI pursues the active hill via SetCTFFlag on a sentinel squad
-- Win condition: first to 120 points
+- Win condition: first team to 200 points (all members set to Won/Defeated via iterator loops)
+- Team support: 1v1, 2v2, and 3v3 via FilterPlayerList on stock Team1Players (356) / Team2Players (358)
 - Tested in 1v1 vs AI on Legendary
 
 ## Architecture Decision: CTF Mode
@@ -27,10 +28,10 @@ KotH runs inside `capflagworld.triggerscript` using CTF game mode. This is requi
 ## Rules
 - **2 zones** currently (expandable to 5), rotating in fixed order
 - **90-second rotation** interval per zone
-- **Scoring:** +1 point every 3 seconds while a player has units in the zone
+- **Scoring:** +1 point every 3 seconds while any teammate has units in the zone
 - **Contested:** NOT YET IMPLEMENTED — both teams can currently score simultaneously
-- **Win condition:** first to **120 points** wins (adjustable via var 2054)
-- **Team support:** 1v1 working, 2v2/3v3 requires swapping FilterPlayer to FilterPlayerList
+- **Win condition:** first team to **200 points** wins (adjustable via var 2054)
+- **Team support:** 1v1, 2v2, 3v3 — scoring filters by Team1Players (356) / Team2Players (358); win/defeat state applied to every team member via IteratorPlayerList loop
 - **AI behavior:** AI paths to active hill via SetCTFFlag, sends waves on Legendary
 
 ## Zone Positions (Terminal Moraine)
@@ -55,27 +56,35 @@ Detection radius: **40 game units** (diameter ~80). Layout forms a cross/plus pa
 ## Current Trigger Architecture
 
 ### File: ModData/data/triggerscripts/capflagworld.triggerscript
-Based on stock CTF with KotH triggers added (IDs 250-260, vars 2000-2054).
+Based on stock CTF with KotH triggers added (IDs 250-263, vars 2000-2063).
 
 ### Triggers
 
-| ID  | Name                    | Type             | Purpose                                                       |
-|-----|-------------------------|------------------|---------------------------------------------------------------|
-| 250 | KotH Init               | Always-true init | SetResources diagnostic, activates scoring loop + setup + rotation |
-| 251 | KotH P1 Score           | Conditional      | CanGetUnits P1 in zone → MathInt → CopyInt → setCTFCount     |
-| 252 | KotH P2 Score           | Conditional      | CanGetUnits P2 in zone → MathInt → CopyInt → setCTFCount     |
-| 254 | KotH Timer Loop         | 3s timer loop    | Activates 251, 252, 259, 260 → self-reactivates              |
-| 256 | KotH Setup              | 5s delay         | CopyLocation var 846, CopyFloat var 1723, CreateObject doughnut |
-| 257 | KotH Rotate to Hill 2   | 90s delay        | SetPosition doughnut, CreateSquad flag, SetCTFFlag, CopyLocation scoring zone, revealers, notifications → activates 258 |
-| 258 | KotH Rotate to Hill 1   | 90s delay        | SetPosition doughnut, CreateSquad flag, SetCTFFlag, CopyLocation scoring zone, revealers, notifications → activates 257 |
-| 259 | KotH P1 Win Check       | Conditional      | CompareInteger P1Score >= 120 → SetPlayerState Won/Defeated   |
-| 260 | KotH P2 Win Check       | Conditional      | CompareInteger P2Score >= 120 → SetPlayerState Won/Defeated   |
+| ID  | Name                     | Type             | Purpose                                                       |
+|-----|--------------------------|------------------|---------------------------------------------------------------|
+| 250 | KotH Init                | Always-true init | SetResources diagnostic, activates scoring loop + setup + rotation |
+| 251 | KotH Team1 Score         | Conditional      | CanGetUnits on Team1Players (356) in zone → MathInt → CopyInt → setCTFCount |
+| 252 | KotH Team2 Score         | Conditional      | CanGetUnits on Team2Players (358) in zone → MathInt → CopyInt → setCTFCount |
+| 254 | KotH Timer Loop          | 3s timer loop    | Activates 251, 252, 259, 260 → self-reactivates              |
+| 256 | KotH Setup               | 5s delay         | CopyLocation var 846, CopyFloat var 1723, CreateObject doughnut |
+| 257 | KotH Rotate to Hill 2    | 90s delay        | SetPosition doughnut, CreateSquad flag, SetCTFFlag, CopyLocation scoring zone, revealers, notifications → activates 258 |
+| 258 | KotH Rotate to Hill 1    | 90s delay        | SetPosition doughnut, CreateSquad flag, SetCTFFlag, CopyLocation scoring zone, revealers, notifications → activates 257 |
+| 259 | KotH Team1 Win Check     | Conditional      | CompareInteger Team1Score >= 200 → IteratorPlayerList(356)→winners, IteratorPlayerList(358)→losers, activate 262/263 |
+| 260 | KotH Team2 Win Check     | Conditional      | CompareInteger Team2Score >= 200 → IteratorPlayerList(358)→winners, IteratorPlayerList(356)→losers, activate 262/263 |
+| 262 | KotH Winners Loop        | Iterator loop    | NextPlayer(winnersIter) → SetPlayerState Won (one player per eval) |
+| 263 | KotH Losers Loop         | Iterator loop    | NextPlayer(losersIter) → SetPlayerState Defeated (one player per eval) |
 
-### Scoring Pipeline (per tick, per player)
-1. **CanGetUnits** — FilterPlayer + FilterLocation + FilterDistance → found units?
+### Scoring Pipeline (per tick, per team)
+1. **CanGetUnits** — FilterPlayerList (Team1Players=356 or Team2Players=358) + FilterLocation + FilterDistance → found units?
 2. **MathInt** — score += 1
 3. **CopyInt** — score → display var
 4. **setCTFCount** — push to HUD widget
+
+### Win Pipeline (once per match, per winning team)
+1. **CompareInteger** — teamScore >= 200 (in trigger 259 or 260)
+2. **IteratorPlayerList** × 2 — initialize winners iterator on winning team's list, losers iterator on opposing team's list
+3. **TriggerActivate** — activate 262 (Winners Loop) and 263 (Losers Loop)
+4. **NextPlayer + SetPlayerState** — each loop evaluates until iterator exhausted, setting Won/Defeated on every team member
 
 ### Rotation Pipeline (per swap)
 1. **SetPosition** — move doughnut to new hill
@@ -104,7 +113,13 @@ Based on stock CTF with KotH triggers added (IDs 250-260, vars 2000-2054).
 | 2039 | ProtoObject | KotHDoughnutProto | cpgn_scn02_covdoughnut_01    |
 | 2041 | Object      | KotHDoughnutObj   | (runtime — DO NOT overwrite) |
 | 2049 | Vector      | KotHHill1Loc      | 651,18,651                   |
-| 2054 | Integer     | KotHWinScore      | 120                          |
+| 2054 | Integer     | KotHWinScore      | 200                          |
+| 2058 | Iterator    | KotHWinnersIter   | (runtime — winning team)     |
+| 2059 | Iterator    | KotHLosersIter    | (runtime — losing team)      |
+| 2060 | Player      | KotHWinnerOut     | (runtime — NextPlayer output)|
+| 2061 | Player      | KotHLoserOut      | (runtime — NextPlayer output)|
+| 2062 | Trigger     | KotHWinnersLoopRef| 262                          |
+| 2063 | Trigger     | KotHLosersLoopRef | 263                          |
 
 ### Stock Vars Reused
 | ID  | Type     | Name              | Purpose in KotH              |
@@ -204,11 +219,11 @@ Each scoring tick needs to detect BOTH teams:
 3. Score trigger: `Team1Present AND NOT Team2Present → P1 scores` (and vice versa)
 4. Both booleans reset to false at start of each tick
 
-### Team Support (2v2, 3v3)
-- Swap FilterPlayer (single player) to FilterPlayerList in CanGetUnits
-- Stock vars 356 (Team1Players) and 358 (Team2Players) are populated by group 4 triggers
-- Win condition needs to iterate player lists for SetPlayerState on all team members
-- Stock iterator pattern exists in capflagworld group 10
+### Team Support (2v2, 3v3) — IMPLEMENTED
+- Scoring: CanGetUnits uses FilterPlayerList with stock vars 356 (Team1Players) and 358 (Team2Players), populated by stock group 4 triggers
+- Win condition: IteratorPlayerList (DBID=120) walks each team's PlayerList and SetPlayerState applies Won/Defeated to every member via NextPlayer (DBID=118) condition loops
+- FilterPlayer is set to a stock null Player var (2 or 139) so only FilterPlayerList is evaluated
+- Limitation: Revealer Owner and FlareMinimapNormal FlaringPlayer still target team leader only (2003/2004). Teams share FoW in HW so the revealer is functionally team-wide; the flare is cosmetic. A future polish pass could iterate these too.
 
 ---
 

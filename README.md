@@ -5,7 +5,7 @@ Custom skirmish game modes for Halo Wars: Definitive Edition, built through trig
 ## Game Modes
 
 ### King of the Hill (V1 playable)
-Classic Halo 2-style territory control. Hold the active zone to score — first to 120 wins. The hill rotates between positions every 90 seconds with audio/visual notifications.
+Classic Halo 2-style territory control. Hold the active zone to score — first team to 200 wins. The hill rotates between positions every 90 seconds with audio/visual notifications. Supports 1v1, 2v2, and 3v3.
 
 **What works:**
 - 2 rotating hills on Terminal Moraine (center + east bridge)
@@ -20,17 +20,17 @@ Classic Halo 2-style territory control. Hold the active zone to score — first 
 - Stock CTF flag spawns from ERA EditorData (~60-90s) — can't be prevented, only redirected
 - "Capture 3 Flags" welcome message from stock CTF
 - No contested logic yet — both teams can score simultaneously
-- 1v1 only — team support (2v2/3v3) requires FilterPlayerList swap
+- Minimap flares and revealers fire for team leader only on each rotation (teams share FoW in HW, so vision is shared; flare is cosmetic)
 
 **Built on CTF mode** — required for setCTFCount HUD and SetCTFFlag AI lure. Skirmish mode was tested and rejected (no HUD, no flag spawning).
 
 #### Roadmap
 - Contested detection (both teams present = nobody scores)
-- 2v2 and 3v3 team support via FilterPlayerList
 - 5-hill rotation across Terminal Moraine
 - Visual hill marker improvements (PowerGrant healing beam, obstruction ring)
 - Custom welcome message and announcer voice
 - Multi-map support via IsMap condition branching
+- Team-wide minimap flares and per-teammate revealers (cosmetic polish)
 
 ### Drag the Reactor (on hold)
 CTF variant using the reactor core from campaign mission 14. Hitch the reactor with your Elephant and tow it to your base to score.
