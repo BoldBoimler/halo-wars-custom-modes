@@ -1,17 +1,77 @@
-# King of the Hill — Design Specification v2
+# King of the Hill — Design Specification v3
 
 ## Overview
-Classic Halo 2-style King of the Hill for Halo Wars DE. A single active zone rotates between positions on the map. Players score by keeping units in the active zone. Built on top of CTF game mode infrastructure for HUD and AI behavior.
+Classic Halo 2 Crazy King-style for Halo Wars DE. A single active zone randomly rotates between 5 preset positions on the map. Players score by keeping units in the active zone. Built on top of CTF game mode infrastructure for HUD and AI behavior.
 
-## Current Status (V1 — April 16, 2026)
-- **Working prototype** on Terminal Moraine with 2 rotating hills
+## Current Status (V3 — April 17, 2026)
+- **Multi-map support** across 18 maps via IsMap-branched init
+- **Random hill selection** (5 hills per map, swaps may repeat — v1 allows repeats)
+- **Working prototype** on Terminal Moraine with 5 rotating hills
 - Scoring works via hijacked CTF HUD (setCTFCount)
 - Hill rotates every 90 seconds with sound, message, and minimap flare notifications
 - Covenant doughnut (`cpgn_scn02_covdoughnut_01`) marks the active hill, moves via SetPosition
 - AI pursues the active hill via SetCTFFlag on a sentinel squad
 - Win condition: first team to 200 points (all members set to Won/Defeated via iterator loops)
 - Team support: 1v1, 2v2, and 3v3 via FilterPlayerList on stock Team1Players (356) / Team2Players (358)
-- Tested in 1v1 vs AI on Legendary
+- Tested in 1v1 vs AI on Legendary on Terminal Moraine (V1)
+
+## Multi-Map Support (V3)
+
+| Map              | Internal name       | Notes                                  |
+|------------------|---------------------|----------------------------------------|
+| Terminal Moraine | terminal_moraine    | Hill 5 is a geometric mirror — may clip |
+| Chasms           | chasms              |                                        |
+| Tundra           | tundra              |                                        |
+| Blood Gulch      | Blood_Gulch         | Stock CTF reference uses this exact case |
+| Labyrinth        | labyrinth           |                                        |
+| Fort Deen        | fort_deen           |                                        |
+| Beacon Hill      | beacon_hill         | Memorial Basin alias? — needs verification |
+| Beasley's Plateau| beasleys_plateau    |                                        |
+| The Docks        | the_docks           | Flat map, all hills Y=-18.02            |
+| Red River        | redriver_1          |                                        |
+| Pirth Outskirts  | pirth_outskirts     |                                        |
+| Release          | release             |                                        |
+| Repository       | repository          |                                        |
+| Frozen Valley    | frozen_valley       |                                        |
+| Barrens          | baron_1_swe         |                                        |
+| Glacial Ravine   | glacial_ravine      |                                        |
+| Exile            | exile               |                                        |
+| Crevice          | crevice             |                                        |
+
+If `IsMap` doesn't match for a given map, the slot Vector vars stay (0,0,0) and rotation will send the active zone to map origin — that's the "oh the internal name is wrong" symptom. Update the corresponding `KotHMapName_*` String var.
+
+### Coordinate note
+All hill Y values are the **desired final Y** for both the scoring zone AND the covenant doughnut object. No runtime offset is applied. The old `KotHH1DoughnutPos`/`KotHH2DoughnutPos` vars are retained as dead code but no longer referenced.
+
+## Random Selection + Dispatch Chain (V3)
+
+The old ping-pong design (triggers 257 ↔ 258) is replaced with a selector + dispatch + slot pattern:
+
+```
+    Init (250) ──────────► activates 18 MapInits + Setup (256) + Selector (280)
+                                  │                              │
+    Each MapInit (290-307)       (fires immediately if IsMap)   (90s timer)
+        │                         │                              │
+        └─► CopyLocation × 5: per-map KotH*_Hill{1..5} ──► Hill{1..5}Loc
+                                                                  ▼
+                                                     RandomCount(1,5) → currentHill
+                                                                  │
+                                                                  ▼
+                                                     Dispatch1 (281) ══ currentHill==1 ══► Slot1 (270) rotates ───► re-activates Selector
+                                                                  │no
+                                                                  ▼
+                                                     Dispatch2 (282) ══ currentHill==2 ══► Slot2 (271) rotates
+                                                                  │no
+                                                                  ▼
+                                                     Dispatch3 (283) ...
+                                                                  ▼
+                                                     Dispatch5 (285) ══ currentHill==5 ══► Slot5 (274) rotates
+```
+
+Each Slot trigger does the same rotation pipeline as the legacy ping-pong: SetPosition doughnut, CreateSquad+SetCTFFlag, CopyLocation zone, Revealer ×2, ShowMessage, PlaySoundFile, FlareMinimap ×2, then TriggerActivate the Selector (which restarts the 90s timer).
+
+### Known v1 limitation: repeats allowed
+The selector rolls 1..5 with no "don't pick last hill" guard. Over 5 rotations you'll see ~1 repeat on average. A no-repeat guard would add one MathInt bump trigger (if raw >= lastHill, +1) and a CopyInt for lastHill state — deferred to v2.
 
 ## Architecture Decision: CTF Mode
 KotH runs inside `capflagworld.triggerscript` using CTF game mode. This is required because:
@@ -56,23 +116,27 @@ Detection radius: **40 game units** (diameter ~80). Layout forms a cross/plus pa
 ## Current Trigger Architecture
 
 ### File: ModData/data/triggerscripts/capflagworld.triggerscript
-Based on stock CTF with KotH triggers added (IDs 250-263, vars 2000-2063).
+Based on stock CTF with KotH triggers added. Trigger IDs 250-307, var IDs 2000-2278.
 
 ### Triggers
 
-| ID  | Name                     | Type             | Purpose                                                       |
-|-----|--------------------------|------------------|---------------------------------------------------------------|
-| 250 | KotH Init                | Always-true init | SetResources diagnostic, activates scoring loop + setup + rotation |
-| 251 | KotH Team1 Score         | Conditional      | CanGetUnits on Team1Players (356) in zone → MathInt → CopyInt → setCTFCount |
-| 252 | KotH Team2 Score         | Conditional      | CanGetUnits on Team2Players (358) in zone → MathInt → CopyInt → setCTFCount |
-| 254 | KotH Timer Loop          | 3s timer loop    | Activates 251, 252, 259, 260 → self-reactivates              |
-| 256 | KotH Setup               | 5s delay         | CopyLocation var 846, CopyFloat var 1723, CreateObject doughnut |
-| 257 | KotH Rotate to Hill 2    | 90s delay        | SetPosition doughnut, CreateSquad flag, SetCTFFlag, CopyLocation scoring zone, revealers, notifications → activates 258 |
-| 258 | KotH Rotate to Hill 1    | 90s delay        | SetPosition doughnut, CreateSquad flag, SetCTFFlag, CopyLocation scoring zone, revealers, notifications → activates 257 |
-| 259 | KotH Team1 Win Check     | Conditional      | CompareInteger Team1Score >= 200 → IteratorPlayerList(356)→winners, IteratorPlayerList(358)→losers, activate 262/263 |
-| 260 | KotH Team2 Win Check     | Conditional      | CompareInteger Team2Score >= 200 → IteratorPlayerList(358)→winners, IteratorPlayerList(356)→losers, activate 262/263 |
-| 262 | KotH Winners Loop        | Iterator loop    | NextPlayer(winnersIter) → SetPlayerState Won (one player per eval) |
-| 263 | KotH Losers Loop         | Iterator loop    | NextPlayer(losersIter) → SetPlayerState Defeated (one player per eval) |
+| ID       | Name                         | Type                | Purpose                                                       |
+|----------|------------------------------|---------------------|---------------------------------------------------------------|
+| 250      | KotH Init                    | Always-true init    | SetResources diagnostic, activates 18 map-init triggers, timer loop, Setup, Selector |
+| 251      | KotH Team1 Score             | Conditional         | CanGetUnits on Team1Players (356) in zone → MathInt → CopyInt → setCTFCount |
+| 252      | KotH Team2 Score             | Conditional         | CanGetUnits on Team2Players (358) in zone → MathInt → CopyInt → setCTFCount |
+| 254      | KotH Timer Loop              | 3s timer loop       | Activates 251, 252, 259, 260 → self-reactivates              |
+| 256      | KotH Setup                   | 5s delay            | CopyLocation Hill1Loc→ZoneCenter, →846, CopyFloat 1723, CreateObject doughnut at Hill1Loc |
+| 257      | KotH Rotate to Hill 2        | DEPRECATED          | Legacy ping-pong — CommentOut="true"                          |
+| 258      | KotH Rotate to Hill 1        | DEPRECATED          | Legacy ping-pong — CommentOut="true"                          |
+| 259      | KotH Team1 Win Check         | Conditional         | CompareInteger Team1Score >= 200 → IteratorPlayerList(356)→winners, IteratorPlayerList(358)→losers, activate 262/263 |
+| 260      | KotH Team2 Win Check         | Conditional         | CompareInteger Team2Score >= 200 → IteratorPlayerList(358)→winners, IteratorPlayerList(356)→losers, activate 262/263 |
+| 262      | KotH Winners Loop            | Iterator loop       | NextPlayer(winnersIter) → SetPlayerState Won (one player per eval) |
+| 263      | KotH Losers Loop             | Iterator loop       | NextPlayer(losersIter) → SetPlayerState Defeated (one player per eval) |
+| 270-274  | KotH Rotate Slot {1..5}      | Non-conditional     | When activated by Dispatch: SetPosition doughnut, CreateSquad+SetCTFFlag, CopyLocation zone, Revealer×2, ShowMessage, PlaySoundFile, Flare×2, activate Selector |
+| 280      | KotH Selector                | 90s timer           | RandomCount(1,5) → KotHCurrentHill → activate Dispatch 1      |
+| 281-285  | KotH Dispatch {1..5}         | Conditional         | CompareInteger KotHCurrentHill == N → activate Slot N, else → activate Dispatch N+1 |
+| 290-307  | KotH MapInit {Map}           | Conditional (IsMap) | CopyLocation × 5: per-map hill vars → Hill{1..5}Loc slot vars |
 
 ### Scoring Pipeline (per tick, per team)
 1. **CanGetUnits** — FilterPlayerList (Team1Players=356 or Team2Players=358) + FilterLocation + FilterDistance → found units?
@@ -99,27 +163,37 @@ Based on stock CTF with KotH triggers added (IDs 250-263, vars 2000-2063).
 
 ### Key TriggerVars
 
-| ID   | Type        | Name              | Value                        |
-|------|-------------|-------------------|------------------------------|
-| 2001 | Vector      | KotHZoneCenter    | (runtime — active hill pos)  |
-| 2002 | Float       | KotHZoneRadius    | 40                           |
-| 2003 | Player      | KotHPlayer1       | 1                            |
-| 2004 | Player      | KotHPlayer2       | 2                            |
-| 2032 | Vector      | KotHHill2Loc      | 891,18,640                   |
-| 2033 | Vector      | KotHH1DoughnutPos | 651,0,651                    |
-| 2034 | Vector      | KotHH2DoughnutPos | 891,0,640                    |
-| 2037 | Time        | KotHRotateDelay   | 90000                        |
-| 2038 | Squad       | KotHNewFlag       | (runtime)                    |
-| 2039 | ProtoObject | KotHDoughnutProto | cpgn_scn02_covdoughnut_01    |
-| 2041 | Object      | KotHDoughnutObj   | (runtime — DO NOT overwrite) |
-| 2049 | Vector      | KotHHill1Loc      | 651,18,651                   |
-| 2054 | Integer     | KotHWinScore      | 200                          |
-| 2058 | Iterator    | KotHWinnersIter   | (runtime — winning team)     |
-| 2059 | Iterator    | KotHLosersIter    | (runtime — losing team)      |
-| 2060 | Player      | KotHWinnerOut     | (runtime — NextPlayer output)|
-| 2061 | Player      | KotHLoserOut      | (runtime — NextPlayer output)|
-| 2062 | Trigger     | KotHWinnersLoopRef| 262                          |
-| 2063 | Trigger     | KotHLosersLoopRef | 263                          |
+| ID        | Type        | Name                    | Value                              |
+|-----------|-------------|-------------------------|------------------------------------|
+| 2001      | Vector      | KotHZoneCenter          | (runtime — active hill pos)        |
+| 2002      | Float       | KotHZoneRadius          | 40                                 |
+| 2003      | Player      | KotHPlayer1             | 1                                  |
+| 2004      | Player      | KotHPlayer2             | 2                                  |
+| 2032      | Vector      | KotHHill2Loc            | (runtime — populated by MapInit)   |
+| 2033      | Vector      | KotHH1DoughnutPos       | 651,0,651 (unused as of V3)        |
+| 2034      | Vector      | KotHH2DoughnutPos       | 891,0,640 (unused as of V3)        |
+| 2037      | Time        | KotHRotateDelay         | 90000                              |
+| 2038      | Squad       | KotHNewFlag             | (runtime)                          |
+| 2039      | ProtoObject | KotHDoughnutProto       | cpgn_scn02_covdoughnut_01          |
+| 2041      | Object      | KotHDoughnutObj         | (runtime — DO NOT overwrite)       |
+| 2049      | Vector      | KotHHill1Loc            | (runtime — populated by MapInit)   |
+| 2054      | Integer     | KotHWinScore            | 200                                |
+| 2058      | Iterator    | KotHWinnersIter         | (runtime — winning team)           |
+| 2059      | Iterator    | KotHLosersIter          | (runtime — losing team)            |
+| 2060      | Player      | KotHWinnerOut           | (runtime — NextPlayer output)      |
+| 2061      | Player      | KotHLoserOut            | (runtime — NextPlayer output)      |
+| 2062      | Trigger     | KotHWinnersLoopRef      | 262                                |
+| 2063      | Trigger     | KotHLosersLoopRef       | 263                                |
+| 2100-2189 | Vector      | KotH{Map}_Hill{1..5}    | Baked-in hill coords (18 maps × 5) |
+| 2200-2217 | String      | KotHMapName_{Map}       | Internal map names for IsMap       |
+| 2220-2222 | Vector      | KotHHill{3,4,5}Loc      | (runtime — populated by MapInit)   |
+| 2230      | Integer     | KotHCurrentHill         | (runtime — RandomCount result)     |
+| 2232-2233 | Integer     | KotHRandMin/Max         | 1 / 5                              |
+| 2240-2244 | Integer     | KotHIdx{1..5}           | 1-5 constants for CompareInteger   |
+| 2250      | Trigger     | KotHSelectorRef         | 280                                |
+| 2251-2255 | Trigger     | KotHSlot{1..5}Ref       | 270-274                            |
+| 2256-2260 | Trigger     | KotHDispatch{1..5}Ref   | 281-285                            |
+| 2261-2278 | Trigger     | KotHMapInit{Map}        | 290-307                            |
 
 ### Stock Vars Reused
 | ID  | Type     | Name              | Purpose in KotH              |

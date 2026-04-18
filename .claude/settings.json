@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(python3 -c ' *)",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Bash(git checkout *)",
+      "Bash(python3 /tmp/apply_multi_map.py)",
+      "Bash(python3 /tmp/apply_triggers.py)",
+      "Bash(python3 /tmp/apply_modifications.py)"
+    ],
+    "additionalDirectories": [
+      "/tmp",
+      "/private/tmp"
     ]
   }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<TriggerSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CapFlagWorld.triggerscript" Type="TriggerScript" NextTriggerVarID="2064" NextTriggerID="264" NextConditionID="187" NextEffectID="686" External="false">
+<TriggerSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CapFlagWorld.triggerscript" Type="TriggerScript" NextTriggerVarID="2300" NextTriggerID="310" NextConditionID="240" NextEffectID="1100" External="false">
 	<TriggerGroups>
 		<Group ID="0" Name="Crate Maker">2,3,4,22,23,24,25</Group>
 		<Group ID="1" Name="Creeps">12,13,14,32,33,34</Group>
@@ -992,6 +992,159 @@
 		<TriggerVar ID="2061" Type="Player" Name="KotHLoserOut" IsNull="false" />
 		<TriggerVar ID="2062" Type="Trigger" Name="KotHWinnersLoopRef" IsNull="false">262</TriggerVar>
 		<TriggerVar ID="2063" Type="Trigger" Name="KotHLosersLoopRef" IsNull="false">263</TriggerVar>
+
+		<TriggerVar ID="2100" Type="Vector" Name="KotHTM_Hill1" IsNull="false">651.0000,0.0000,651.0000</TriggerVar>
+		<TriggerVar ID="2101" Type="Vector" Name="KotHTM_Hill2" IsNull="false">891.0000,0.0000,640.0000</TriggerVar>
+		<TriggerVar ID="2102" Type="Vector" Name="KotHTM_Hill3" IsNull="false">837.7200,15.0000,450.5200</TriggerVar>
+		<TriggerVar ID="2103" Type="Vector" Name="KotHTM_Hill4" IsNull="false">454.9800,12.0000,838.8600</TriggerVar>
+		<TriggerVar ID="2104" Type="Vector" Name="KotHTM_Hill5" IsNull="false">411.0000,0.0000,640.0000</TriggerVar>
+		<TriggerVar ID="2105" Type="Vector" Name="KotHChasms_Hill1" IsNull="false">380.1400,-3.7000,383.6100</TriggerVar>
+		<TriggerVar ID="2106" Type="Vector" Name="KotHChasms_Hill2" IsNull="false">593.7700,-5.7100,394.0700</TriggerVar>
+		<TriggerVar ID="2107" Type="Vector" Name="KotHChasms_Hill3" IsNull="false">179.0700,8.0200,320.1100</TriggerVar>
+		<TriggerVar ID="2108" Type="Vector" Name="KotHChasms_Hill4" IsNull="false">153.3300,-3.5200,633.3100</TriggerVar>
+		<TriggerVar ID="2109" Type="Vector" Name="KotHChasms_Hill5" IsNull="false">669.8700,0.2900,81.4800</TriggerVar>
+		<TriggerVar ID="2110" Type="Vector" Name="KotHTundra_Hill1" IsNull="false">450.1600,-31.8200,453.4300</TriggerVar>
+		<TriggerVar ID="2111" Type="Vector" Name="KotHTundra_Hill2" IsNull="false">239.9800,-30.1500,378.6300</TriggerVar>
+		<TriggerVar ID="2112" Type="Vector" Name="KotHTundra_Hill3" IsNull="false">482.4400,-24.1700,265.5200</TriggerVar>
+		<TriggerVar ID="2113" Type="Vector" Name="KotHTundra_Hill4" IsNull="false">361.7300,-27.5500,694.8400</TriggerVar>
+		<TriggerVar ID="2114" Type="Vector" Name="KotHTundra_Hill5" IsNull="false">763.0700,-17.5100,495.6100</TriggerVar>
+		<TriggerVar ID="2115" Type="Vector" Name="KotHBG_Hill1" IsNull="false">485.6000,-7.9900,476.5300</TriggerVar>
+		<TriggerVar ID="2116" Type="Vector" Name="KotHBG_Hill2" IsNull="false">359.9000,19.3700,803.3800</TriggerVar>
+		<TriggerVar ID="2117" Type="Vector" Name="KotHBG_Hill3" IsNull="false">751.6000,17.6000,450.7800</TriggerVar>
+		<TriggerVar ID="2118" Type="Vector" Name="KotHBG_Hill4" IsNull="false">656.6800,-18.1400,191.5700</TriggerVar>
+		<TriggerVar ID="2119" Type="Vector" Name="KotHBG_Hill5" IsNull="false">196.6900,-13.0600,473.3400</TriggerVar>
+		<TriggerVar ID="2120" Type="Vector" Name="KotHLabyrinth_Hill1" IsNull="false">515.8800,-35.5500,510.7800</TriggerVar>
+		<TriggerVar ID="2121" Type="Vector" Name="KotHLabyrinth_Hill2" IsNull="false">885.3800,-15.4400,672.4900</TriggerVar>
+		<TriggerVar ID="2122" Type="Vector" Name="KotHLabyrinth_Hill3" IsNull="false">132.9100,-17.5900,315.7400</TriggerVar>
+		<TriggerVar ID="2123" Type="Vector" Name="KotHLabyrinth_Hill4" IsNull="false">133.7500,-16.3400,767.4100</TriggerVar>
+		<TriggerVar ID="2124" Type="Vector" Name="KotHLabyrinth_Hill5" IsNull="false">966.9700,-14.2400,262.8500</TriggerVar>
+		<TriggerVar ID="2125" Type="Vector" Name="KotHFortDeen_Hill1" IsNull="false">634.8000,-45.4700,637.8100</TriggerVar>
+		<TriggerVar ID="2126" Type="Vector" Name="KotHFortDeen_Hill2" IsNull="false">1182.2100,-28.3700,646.9700</TriggerVar>
+		<TriggerVar ID="2127" Type="Vector" Name="KotHFortDeen_Hill3" IsNull="false">71.3600,-33.2500,639.5800</TriggerVar>
+		<TriggerVar ID="2128" Type="Vector" Name="KotHFortDeen_Hill4" IsNull="false">307.2700,-33.8600,273.4400</TriggerVar>
+		<TriggerVar ID="2129" Type="Vector" Name="KotHFortDeen_Hill5" IsNull="false">1023.6100,-33.2500,960.8800</TriggerVar>
+		<TriggerVar ID="2130" Type="Vector" Name="KotHBeaconHill_Hill1" IsNull="false">513.8300,10.8200,510.1800</TriggerVar>
+		<TriggerVar ID="2131" Type="Vector" Name="KotHBeaconHill_Hill2" IsNull="false">223.4300,-17.6400,509.1600</TriggerVar>
+		<TriggerVar ID="2132" Type="Vector" Name="KotHBeaconHill_Hill3" IsNull="false">793.1700,-18.0300,514.1100</TriggerVar>
+		<TriggerVar ID="2133" Type="Vector" Name="KotHBeaconHill_Hill4" IsNull="false">515.2100,-18.0300,845.8200</TriggerVar>
+		<TriggerVar ID="2134" Type="Vector" Name="KotHBeaconHill_Hill5" IsNull="false">509.9600,-17.0700,170.5200</TriggerVar>
+		<TriggerVar ID="2135" Type="Vector" Name="KotHBeasleys_Hill1" IsNull="false">542.6300,-31.7500,487.8700</TriggerVar>
+		<TriggerVar ID="2136" Type="Vector" Name="KotHBeasleys_Hill2" IsNull="false">788.0200,-16.6500,253.4200</TriggerVar>
+		<TriggerVar ID="2137" Type="Vector" Name="KotHBeasleys_Hill3" IsNull="false">293.2400,-41.4100,695.5600</TriggerVar>
+		<TriggerVar ID="2138" Type="Vector" Name="KotHBeasleys_Hill4" IsNull="false">732.1100,-27.7600,783.3400</TriggerVar>
+		<TriggerVar ID="2139" Type="Vector" Name="KotHBeasleys_Hill5" IsNull="false">278.2900,-21.2400,258.7400</TriggerVar>
+		<TriggerVar ID="2140" Type="Vector" Name="KotHDocks_Hill1" IsNull="false">515.2200,-18.0200,647.6400</TriggerVar>
+		<TriggerVar ID="2141" Type="Vector" Name="KotHDocks_Hill2" IsNull="false">369.8100,-18.0200,568.4400</TriggerVar>
+		<TriggerVar ID="2142" Type="Vector" Name="KotHDocks_Hill3" IsNull="false">672.7600,-18.0200,553.4300</TriggerVar>
+		<TriggerVar ID="2143" Type="Vector" Name="KotHDocks_Hill4" IsNull="false">640.9600,-18.0200,774.0100</TriggerVar>
+		<TriggerVar ID="2144" Type="Vector" Name="KotHDocks_Hill5" IsNull="false">376.6600,-18.0200,777.9900</TriggerVar>
+		<TriggerVar ID="2145" Type="Vector" Name="KotHRedRiver_Hill1" IsNull="false">275.7600,-19.3400,288.3400</TriggerVar>
+		<TriggerVar ID="2146" Type="Vector" Name="KotHRedRiver_Hill2" IsNull="false">502.8300,-27.2400,502.8100</TriggerVar>
+		<TriggerVar ID="2147" Type="Vector" Name="KotHRedRiver_Hill3" IsNull="false">454.3400,-17.8500,340.4400</TriggerVar>
+		<TriggerVar ID="2148" Type="Vector" Name="KotHRedRiver_Hill4" IsNull="false">251.8900,-17.8400,513.1800</TriggerVar>
+		<TriggerVar ID="2149" Type="Vector" Name="KotHRedRiver_Hill5" IsNull="false">384.9900,-1.2900,425.5100</TriggerVar>
+		<TriggerVar ID="2150" Type="Vector" Name="KotHPirth_Hill1" IsNull="false">450.9900,51.4200,459.8600</TriggerVar>
+		<TriggerVar ID="2151" Type="Vector" Name="KotHPirth_Hill2" IsNull="false">577.4000,6.5100,454.8200</TriggerVar>
+		<TriggerVar ID="2152" Type="Vector" Name="KotHPirth_Hill3" IsNull="false">325.6700,26.8800,459.6100</TriggerVar>
+		<TriggerVar ID="2153" Type="Vector" Name="KotHPirth_Hill4" IsNull="false">481.0300,17.0700,598.2700</TriggerVar>
+		<TriggerVar ID="2154" Type="Vector" Name="KotHPirth_Hill5" IsNull="false">440.5200,10.3200,331.5400</TriggerVar>
+		<TriggerVar ID="2155" Type="Vector" Name="KotHRelease_Hill1" IsNull="false">353.2100,-9.7800,433.8400</TriggerVar>
+		<TriggerVar ID="2156" Type="Vector" Name="KotHRelease_Hill2" IsNull="false">458.9800,-17.2100,239.0900</TriggerVar>
+		<TriggerVar ID="2157" Type="Vector" Name="KotHRelease_Hill3" IsNull="false">450.4900,-18.5700,657.5600</TriggerVar>
+		<TriggerVar ID="2158" Type="Vector" Name="KotHRelease_Hill4" IsNull="false">129.6300,9.4300,745.9700</TriggerVar>
+		<TriggerVar ID="2159" Type="Vector" Name="KotHRelease_Hill5" IsNull="false">127.0200,12.4300,207.9600</TriggerVar>
+		<TriggerVar ID="2160" Type="Vector" Name="KotHRepo_Hill1" IsNull="false">512.4500,1.5700,512.9800</TriggerVar>
+		<TriggerVar ID="2161" Type="Vector" Name="KotHRepo_Hill2" IsNull="false">659.4000,-56.2200,659.7900</TriggerVar>
+		<TriggerVar ID="2162" Type="Vector" Name="KotHRepo_Hill3" IsNull="false">660.2700,-56.2200,366.4500</TriggerVar>
+		<TriggerVar ID="2163" Type="Vector" Name="KotHRepo_Hill4" IsNull="false">359.5800,-49.8600,368.1300</TriggerVar>
+		<TriggerVar ID="2164" Type="Vector" Name="KotHRepo_Hill5" IsNull="false">384.4100,-56.2200,636.8000</TriggerVar>
+		<TriggerVar ID="2165" Type="Vector" Name="KotHFrozen_Hill1" IsNull="false">640.1300,-2.8800,643.0800</TriggerVar>
+		<TriggerVar ID="2166" Type="Vector" Name="KotHFrozen_Hill2" IsNull="false">369.1100,3.6400,1002.3700</TriggerVar>
+		<TriggerVar ID="2167" Type="Vector" Name="KotHFrozen_Hill3" IsNull="false">803.8000,3.5000,1003.2700</TriggerVar>
+		<TriggerVar ID="2168" Type="Vector" Name="KotHFrozen_Hill4" IsNull="false">863.7000,8.1600,282.7400</TriggerVar>
+		<TriggerVar ID="2169" Type="Vector" Name="KotHFrozen_Hill5" IsNull="false">386.0700,8.1600,266.8200</TriggerVar>
+		<TriggerVar ID="2170" Type="Vector" Name="KotHBarrens_Hill1" IsNull="false">384.0400,-11.3800,383.9500</TriggerVar>
+		<TriggerVar ID="2171" Type="Vector" Name="KotHBarrens_Hill2" IsNull="false">359.2700,-22.7500,128.5900</TriggerVar>
+		<TriggerVar ID="2172" Type="Vector" Name="KotHBarrens_Hill3" IsNull="false">379.8300,-11.0100,635.1000</TriggerVar>
+		<TriggerVar ID="2173" Type="Vector" Name="KotHBarrens_Hill4" IsNull="false">528.3900,-12.6000,128.0400</TriggerVar>
+		<TriggerVar ID="2174" Type="Vector" Name="KotHBarrens_Hill5" IsNull="false">228.6200,-11.9400,644.2500</TriggerVar>
+		<TriggerVar ID="2175" Type="Vector" Name="KotHGlacial_Hill1" IsNull="false">644.4800,-2.9800,645.1500</TriggerVar>
+		<TriggerVar ID="2176" Type="Vector" Name="KotHGlacial_Hill2" IsNull="false">334.5700,2.6500,931.7900</TriggerVar>
+		<TriggerVar ID="2177" Type="Vector" Name="KotHGlacial_Hill3" IsNull="false">879.9700,31.7000,1012.1000</TriggerVar>
+		<TriggerVar ID="2178" Type="Vector" Name="KotHGlacial_Hill4" IsNull="false">851.8400,8.8300,378.1900</TriggerVar>
+		<TriggerVar ID="2179" Type="Vector" Name="KotHGlacial_Hill5" IsNull="false">419.3700,8.2200,267.1000</TriggerVar>
+		<TriggerVar ID="2180" Type="Vector" Name="KotHExile_Hill1" IsNull="false">642.0200,49.0200,644.9200</TriggerVar>
+		<TriggerVar ID="2181" Type="Vector" Name="KotHExile_Hill2" IsNull="false">313.7400,12.0200,448.9000</TriggerVar>
+		<TriggerVar ID="2182" Type="Vector" Name="KotHExile_Hill3" IsNull="false">1205.7600,43.8000,736.7600</TriggerVar>
+		<TriggerVar ID="2183" Type="Vector" Name="KotHExile_Hill4" IsNull="false">63.9200,42.6100,557.6400</TriggerVar>
+		<TriggerVar ID="2184" Type="Vector" Name="KotHExile_Hill5" IsNull="false">909.6600,13.5600,779.0600</TriggerVar>
+		<TriggerVar ID="2185" Type="Vector" Name="KotHCrevice_Hill1" IsNull="false">512.1300,10.2600,512.4900</TriggerVar>
+		<TriggerVar ID="2186" Type="Vector" Name="KotHCrevice_Hill2" IsNull="false">934.4900,-7.4200,513.0300</TriggerVar>
+		<TriggerVar ID="2187" Type="Vector" Name="KotHCrevice_Hill3" IsNull="false">80.9400,21.7300,526.9800</TriggerVar>
+		<TriggerVar ID="2188" Type="Vector" Name="KotHCrevice_Hill4" IsNull="false">499.8800,3.3100,950.3300</TriggerVar>
+		<TriggerVar ID="2189" Type="Vector" Name="KotHCrevice_Hill5" IsNull="false">509.1300,4.4400,82.2100</TriggerVar>
+
+		<TriggerVar ID="2200" Type="String" Name="KotHMapName_TM" IsNull="false">terminal_moraine</TriggerVar>
+		<TriggerVar ID="2201" Type="String" Name="KotHMapName_Chasms" IsNull="false">chasms</TriggerVar>
+		<TriggerVar ID="2202" Type="String" Name="KotHMapName_Tundra" IsNull="false">tundra</TriggerVar>
+		<TriggerVar ID="2203" Type="String" Name="KotHMapName_BG" IsNull="false">Blood_Gulch</TriggerVar>
+		<TriggerVar ID="2204" Type="String" Name="KotHMapName_Labyrinth" IsNull="false">labyrinth</TriggerVar>
+		<TriggerVar ID="2205" Type="String" Name="KotHMapName_FortDeen" IsNull="false">fort_deen</TriggerVar>
+		<TriggerVar ID="2206" Type="String" Name="KotHMapName_BeaconHill" IsNull="false">beacon_hill</TriggerVar>
+		<TriggerVar ID="2207" Type="String" Name="KotHMapName_Beasleys" IsNull="false">beasleys_plateau</TriggerVar>
+		<TriggerVar ID="2208" Type="String" Name="KotHMapName_Docks" IsNull="false">the_docks</TriggerVar>
+		<TriggerVar ID="2209" Type="String" Name="KotHMapName_RedRiver" IsNull="false">redriver_1</TriggerVar>
+		<TriggerVar ID="2210" Type="String" Name="KotHMapName_Pirth" IsNull="false">pirth_outskirts</TriggerVar>
+		<TriggerVar ID="2211" Type="String" Name="KotHMapName_Release" IsNull="false">release</TriggerVar>
+		<TriggerVar ID="2212" Type="String" Name="KotHMapName_Repo" IsNull="false">repository</TriggerVar>
+		<TriggerVar ID="2213" Type="String" Name="KotHMapName_Frozen" IsNull="false">frozen_valley</TriggerVar>
+		<TriggerVar ID="2214" Type="String" Name="KotHMapName_Barrens" IsNull="false">baron_1_swe</TriggerVar>
+		<TriggerVar ID="2215" Type="String" Name="KotHMapName_Glacial" IsNull="false">glacial_ravine</TriggerVar>
+		<TriggerVar ID="2216" Type="String" Name="KotHMapName_Exile" IsNull="false">exile</TriggerVar>
+		<TriggerVar ID="2217" Type="String" Name="KotHMapName_Crevice" IsNull="false">crevice</TriggerVar>
+
+		<TriggerVar ID="2220" Type="Vector" Name="KotHHill3Loc" IsNull="false">0.0000,0.0000,0.0000</TriggerVar>
+		<TriggerVar ID="2221" Type="Vector" Name="KotHHill4Loc" IsNull="false">0.0000,0.0000,0.0000</TriggerVar>
+		<TriggerVar ID="2222" Type="Vector" Name="KotHHill5Loc" IsNull="false">0.0000,0.0000,0.0000</TriggerVar>
+
+		<TriggerVar ID="2230" Type="Integer" Name="KotHCurrentHill" IsNull="false">1</TriggerVar>
+		<TriggerVar ID="2232" Type="Integer" Name="KotHRandMin" IsNull="false">1</TriggerVar>
+		<TriggerVar ID="2233" Type="Integer" Name="KotHRandMax" IsNull="false">5</TriggerVar>
+		<TriggerVar ID="2240" Type="Integer" Name="KotHIdx1" IsNull="false">1</TriggerVar>
+		<TriggerVar ID="2241" Type="Integer" Name="KotHIdx2" IsNull="false">2</TriggerVar>
+		<TriggerVar ID="2242" Type="Integer" Name="KotHIdx3" IsNull="false">3</TriggerVar>
+		<TriggerVar ID="2243" Type="Integer" Name="KotHIdx4" IsNull="false">4</TriggerVar>
+		<TriggerVar ID="2244" Type="Integer" Name="KotHIdx5" IsNull="false">5</TriggerVar>
+
+		<TriggerVar ID="2250" Type="Trigger" Name="KotHSelectorRef" IsNull="false">280</TriggerVar>
+		<TriggerVar ID="2251" Type="Trigger" Name="KotHSlot1Ref" IsNull="false">270</TriggerVar>
+		<TriggerVar ID="2252" Type="Trigger" Name="KotHSlot2Ref" IsNull="false">271</TriggerVar>
+		<TriggerVar ID="2253" Type="Trigger" Name="KotHSlot3Ref" IsNull="false">272</TriggerVar>
+		<TriggerVar ID="2254" Type="Trigger" Name="KotHSlot4Ref" IsNull="false">273</TriggerVar>
+		<TriggerVar ID="2255" Type="Trigger" Name="KotHSlot5Ref" IsNull="false">274</TriggerVar>
+		<TriggerVar ID="2256" Type="Trigger" Name="KotHDispatch1Ref" IsNull="false">281</TriggerVar>
+		<TriggerVar ID="2257" Type="Trigger" Name="KotHDispatch2Ref" IsNull="false">282</TriggerVar>
+		<TriggerVar ID="2258" Type="Trigger" Name="KotHDispatch3Ref" IsNull="false">283</TriggerVar>
+		<TriggerVar ID="2259" Type="Trigger" Name="KotHDispatch4Ref" IsNull="false">284</TriggerVar>
+		<TriggerVar ID="2260" Type="Trigger" Name="KotHDispatch5Ref" IsNull="false">285</TriggerVar>
+		<TriggerVar ID="2261" Type="Trigger" Name="KotHMapInitTM" IsNull="false">290</TriggerVar>
+		<TriggerVar ID="2262" Type="Trigger" Name="KotHMapInitChasms" IsNull="false">291</TriggerVar>
+		<TriggerVar ID="2263" Type="Trigger" Name="KotHMapInitTundra" IsNull="false">292</TriggerVar>
+		<TriggerVar ID="2264" Type="Trigger" Name="KotHMapInitBG" IsNull="false">293</TriggerVar>
+		<TriggerVar ID="2265" Type="Trigger" Name="KotHMapInitLabyrinth" IsNull="false">294</TriggerVar>
+		<TriggerVar ID="2266" Type="Trigger" Name="KotHMapInitFortDeen" IsNull="false">295</TriggerVar>
+		<TriggerVar ID="2267" Type="Trigger" Name="KotHMapInitBeaconHill" IsNull="false">296</TriggerVar>
+		<TriggerVar ID="2268" Type="Trigger" Name="KotHMapInitBeasleys" IsNull="false">297</TriggerVar>
+		<TriggerVar ID="2269" Type="Trigger" Name="KotHMapInitDocks" IsNull="false">298</TriggerVar>
+		<TriggerVar ID="2270" Type="Trigger" Name="KotHMapInitRedRiver" IsNull="false">299</TriggerVar>
+		<TriggerVar ID="2271" Type="Trigger" Name="KotHMapInitPirth" IsNull="false">300</TriggerVar>
+		<TriggerVar ID="2272" Type="Trigger" Name="KotHMapInitRelease" IsNull="false">301</TriggerVar>
+		<TriggerVar ID="2273" Type="Trigger" Name="KotHMapInitRepo" IsNull="false">302</TriggerVar>
+		<TriggerVar ID="2274" Type="Trigger" Name="KotHMapInitFrozen" IsNull="false">303</TriggerVar>
+		<TriggerVar ID="2275" Type="Trigger" Name="KotHMapInitBarrens" IsNull="false">304</TriggerVar>
+		<TriggerVar ID="2276" Type="Trigger" Name="KotHMapInitGlacial" IsNull="false">305</TriggerVar>
+		<TriggerVar ID="2277" Type="Trigger" Name="KotHMapInitExile" IsNull="false">306</TriggerVar>
+		<TriggerVar ID="2278" Type="Trigger" Name="KotHMapInitCrevice" IsNull="false">307</TriggerVar>
 	</TriggerVars>
 	<Triggers>
 		<Trigger ID="1" Name="Start" Active="true" EvaluateFrequency="0" EvalLimit="0" CommentOut="false" ConditionalTrigger="false" X="78" Y="174" GroupID="-1" TemplateID="-1">
@@ -4197,14 +4350,68 @@
 					<Input Name="Player" SigID="1" Optional="false">2003</Input>
 					<Input Name="Resources" SigID="2" Optional="false">2021</Input>
 				</Effect>
+				<Effect ID="1500" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2261</Input>
+				</Effect>
+				<Effect ID="1501" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2262</Input>
+				</Effect>
+				<Effect ID="1502" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2263</Input>
+				</Effect>
+				<Effect ID="1503" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2264</Input>
+				</Effect>
+				<Effect ID="1504" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2265</Input>
+				</Effect>
+				<Effect ID="1505" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2266</Input>
+				</Effect>
+				<Effect ID="1506" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2267</Input>
+				</Effect>
+				<Effect ID="1507" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2268</Input>
+				</Effect>
+				<Effect ID="1508" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2269</Input>
+				</Effect>
+				<Effect ID="1509" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2270</Input>
+				</Effect>
+				<Effect ID="1510" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2271</Input>
+				</Effect>
+				<Effect ID="1511" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2272</Input>
+				</Effect>
+				<Effect ID="1512" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2273</Input>
+				</Effect>
+				<Effect ID="1513" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2274</Input>
+				</Effect>
+				<Effect ID="1514" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2275</Input>
+				</Effect>
+				<Effect ID="1515" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2276</Input>
+				</Effect>
+				<Effect ID="1516" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2277</Input>
+				</Effect>
+				<Effect ID="1517" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2278</Input>
+				</Effect>
 				<Effect ID="621" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
 					<Input Name="Trigger" SigID="1" Optional="false">2000</Input>
 				</Effect>
 				<Effect ID="642" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
 					<Input Name="Trigger" SigID="1" Optional="false">2030</Input>
 				</Effect>
-				<Effect ID="643" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
-					<Input Name="Trigger" SigID="1" Optional="false">2035</Input>
+				<Effect ID="1518" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2250</Input>
 				</Effect>
 			</TriggerEffectsOnTrue>
 			<TriggerEffectsOnFalse />
@@ -4325,6 +4532,10 @@
 				</And>
 			</TriggerConditions>
 			<TriggerEffectsOnTrue>
+				<Effect ID="1600" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2049</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2001</o>
+				</Effect>
 				<Effect ID="640" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
 					<Input Name="LocationSource" SigID="1" Optional="false">2001</Input>
 					<Output Name="LocationCopy" SigID="2" Optional="false">846</o>
@@ -4336,7 +4547,7 @@
 				<Effect ID="644" Type="CreateObject" DBID="35" Version="6" CommentOut="false">
 					<Input Name="ProtoObject" SigID="1" Optional="false">2039</Input>
 					<Input Name="Player" SigID="3" Optional="false">888</Input>
-					<Input Name="Location" SigID="2" Optional="false">2033</Input>
+					<Input Name="Location" SigID="2" Optional="false">2049</Input>
 					<Input Name="Facing" SigID="10" Optional="true">887</Input>
 					<Input Name="NoPhysics" SigID="11" Optional="true">2040</Input>
 					<Output Name="Object" SigID="4" Optional="true">2041</o>
@@ -4346,7 +4557,7 @@
 			</TriggerEffectsOnTrue>
 			<TriggerEffectsOnFalse />
 		</Trigger>
-		<Trigger ID="257" Name="KotH Rotate to Hill 2" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="false" X="80" Y="700" GroupID="-1" TemplateID="-1">
+		<Trigger ID="257" Name="KotH Rotate to Hill 2 (DEPRECATED)" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="true" ConditionalTrigger="false" X="80" Y="700" GroupID="-1" TemplateID="-1">
 			<TriggerConditions>
 				<And>
 					<Condition ID="181" Type="TriggerActiveTime" DBID="7" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
@@ -4429,7 +4640,7 @@
 			</TriggerEffectsOnTrue>
 			<TriggerEffectsOnFalse />
 		</Trigger>
-		<Trigger ID="258" Name="KotH Rotate to Hill 1" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="false" X="80" Y="800" GroupID="-1" TemplateID="-1">
+		<Trigger ID="258" Name="KotH Rotate to Hill 1 (DEPRECATED)" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="true" ConditionalTrigger="false" X="80" Y="800" GroupID="-1" TemplateID="-1">
 			<TriggerConditions>
 				<And>
 					<Condition ID="182" Type="TriggerActiveTime" DBID="7" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
@@ -4598,6 +4809,1095 @@
 				<Effect ID="685" Type="SetPlayerState" DBID="130" Version="2" CommentOut="false">
 					<Input Name="Player" SigID="1" Optional="false">2061</Input>
 					<Input Name="PlayerState" SigID="3" Optional="false">239</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="270" Name="KotH Rotate Slot 1" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="false" X="1200" Y="680" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And />
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1100" Type="SetPosition" DBID="537" Version="3" CommentOut="false">
+					<Input Name="Object" SigID="3" Optional="true">2041</Input>
+					<Input Name="Unit" SigID="4" Optional="true">2050</Input>
+					<Input Name="Position" SigID="2" Optional="false">2049</Input>
+				</Effect>
+				<Effect ID="1101" Type="CreateSquad" DBID="36" Version="7" CommentOut="false">
+					<Input Name="ProtoSquad" SigID="1" Optional="false">885</Input>
+					<Input Name="CreateLocation" SigID="2" Optional="false">2049</Input>
+					<Input Name="Facing" SigID="12" Optional="true">887</Input>
+					<Input Name="SquadOwner" SigID="3" Optional="false">888</Input>
+					<Input Name="FlyInStart" SigID="8" Optional="true">889</Input>
+					<Input Name="FlyInEnd" SigID="9" Optional="true">890</Input>
+					<Input Name="RallyPoint" SigID="10" Optional="true">891</Input>
+					<Input Name="AttackMoveRallyPoint" SigID="11" Optional="true">892</Input>
+					<Output Name="CreatedSquad" SigID="4" Optional="true">2038</o>
+					<Output Name="AddToSquadList" SigID="5" Optional="true">894</o>
+					<Output Name="SquadListClearExisting" SigID="6" Optional="true">895</o>
+				</Effect>
+				<Effect ID="1102" Type="SetCTFFlag" DBID="1076" Version="1" CommentOut="false">
+					<Input Name="Squad" SigID="1" Optional="false">2038</Input>
+				</Effect>
+				<Effect ID="1103" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2049</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2001</o>
+				</Effect>
+				<Effect ID="1104" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2003</Input>
+					<Input Name="Location" SigID="2" Optional="true">2049</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1105" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2004</Input>
+					<Input Name="Location" SigID="2" Optional="true">2049</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1106" Type="ShowMessage" DBID="904" Version="1" CommentOut="false">
+					<Input Name="Player" SigID="1" Optional="true">1631</Input>
+					<Input Name="PlayerList" SigID="2" Optional="true">68</Input>
+					<Input Name="Sound" SigID="3" Optional="true">1633</Input>
+					<Input Name="QueueSound" SigID="4" Optional="true">1634</Input>
+					<Input Name="Message" SigID="5" Optional="false">2046</Input>
+					<Input Name="duration" SigID="6" Optional="false">2047</Input>
+				</Effect>
+				<Effect ID="1107" Type="PlaySoundFile" DBID="1084" Version="1" CommentOut="false">
+					<Input Name="FileName" SigID="1" Optional="false">2048</Input>
+					<Input Name="Player" SigID="2" Optional="true">1740</Input>
+				</Effect>
+				<Effect ID="1108" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2003</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2049</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1109" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2004</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2049</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1110" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2250</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="271" Name="KotH Rotate Slot 2" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="false" X="1200" Y="760" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And />
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1111" Type="SetPosition" DBID="537" Version="3" CommentOut="false">
+					<Input Name="Object" SigID="3" Optional="true">2041</Input>
+					<Input Name="Unit" SigID="4" Optional="true">2050</Input>
+					<Input Name="Position" SigID="2" Optional="false">2032</Input>
+				</Effect>
+				<Effect ID="1112" Type="CreateSquad" DBID="36" Version="7" CommentOut="false">
+					<Input Name="ProtoSquad" SigID="1" Optional="false">885</Input>
+					<Input Name="CreateLocation" SigID="2" Optional="false">2032</Input>
+					<Input Name="Facing" SigID="12" Optional="true">887</Input>
+					<Input Name="SquadOwner" SigID="3" Optional="false">888</Input>
+					<Input Name="FlyInStart" SigID="8" Optional="true">889</Input>
+					<Input Name="FlyInEnd" SigID="9" Optional="true">890</Input>
+					<Input Name="RallyPoint" SigID="10" Optional="true">891</Input>
+					<Input Name="AttackMoveRallyPoint" SigID="11" Optional="true">892</Input>
+					<Output Name="CreatedSquad" SigID="4" Optional="true">2038</o>
+					<Output Name="AddToSquadList" SigID="5" Optional="true">894</o>
+					<Output Name="SquadListClearExisting" SigID="6" Optional="true">895</o>
+				</Effect>
+				<Effect ID="1113" Type="SetCTFFlag" DBID="1076" Version="1" CommentOut="false">
+					<Input Name="Squad" SigID="1" Optional="false">2038</Input>
+				</Effect>
+				<Effect ID="1114" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2032</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2001</o>
+				</Effect>
+				<Effect ID="1115" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2003</Input>
+					<Input Name="Location" SigID="2" Optional="true">2032</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1116" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2004</Input>
+					<Input Name="Location" SigID="2" Optional="true">2032</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1117" Type="ShowMessage" DBID="904" Version="1" CommentOut="false">
+					<Input Name="Player" SigID="1" Optional="true">1631</Input>
+					<Input Name="PlayerList" SigID="2" Optional="true">68</Input>
+					<Input Name="Sound" SigID="3" Optional="true">1633</Input>
+					<Input Name="QueueSound" SigID="4" Optional="true">1634</Input>
+					<Input Name="Message" SigID="5" Optional="false">2046</Input>
+					<Input Name="duration" SigID="6" Optional="false">2047</Input>
+				</Effect>
+				<Effect ID="1118" Type="PlaySoundFile" DBID="1084" Version="1" CommentOut="false">
+					<Input Name="FileName" SigID="1" Optional="false">2048</Input>
+					<Input Name="Player" SigID="2" Optional="true">1740</Input>
+				</Effect>
+				<Effect ID="1119" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2003</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2032</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1120" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2004</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2032</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1121" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2250</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="272" Name="KotH Rotate Slot 3" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="false" X="1200" Y="840" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And />
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1122" Type="SetPosition" DBID="537" Version="3" CommentOut="false">
+					<Input Name="Object" SigID="3" Optional="true">2041</Input>
+					<Input Name="Unit" SigID="4" Optional="true">2050</Input>
+					<Input Name="Position" SigID="2" Optional="false">2220</Input>
+				</Effect>
+				<Effect ID="1123" Type="CreateSquad" DBID="36" Version="7" CommentOut="false">
+					<Input Name="ProtoSquad" SigID="1" Optional="false">885</Input>
+					<Input Name="CreateLocation" SigID="2" Optional="false">2220</Input>
+					<Input Name="Facing" SigID="12" Optional="true">887</Input>
+					<Input Name="SquadOwner" SigID="3" Optional="false">888</Input>
+					<Input Name="FlyInStart" SigID="8" Optional="true">889</Input>
+					<Input Name="FlyInEnd" SigID="9" Optional="true">890</Input>
+					<Input Name="RallyPoint" SigID="10" Optional="true">891</Input>
+					<Input Name="AttackMoveRallyPoint" SigID="11" Optional="true">892</Input>
+					<Output Name="CreatedSquad" SigID="4" Optional="true">2038</o>
+					<Output Name="AddToSquadList" SigID="5" Optional="true">894</o>
+					<Output Name="SquadListClearExisting" SigID="6" Optional="true">895</o>
+				</Effect>
+				<Effect ID="1124" Type="SetCTFFlag" DBID="1076" Version="1" CommentOut="false">
+					<Input Name="Squad" SigID="1" Optional="false">2038</Input>
+				</Effect>
+				<Effect ID="1125" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2220</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2001</o>
+				</Effect>
+				<Effect ID="1126" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2003</Input>
+					<Input Name="Location" SigID="2" Optional="true">2220</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1127" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2004</Input>
+					<Input Name="Location" SigID="2" Optional="true">2220</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1128" Type="ShowMessage" DBID="904" Version="1" CommentOut="false">
+					<Input Name="Player" SigID="1" Optional="true">1631</Input>
+					<Input Name="PlayerList" SigID="2" Optional="true">68</Input>
+					<Input Name="Sound" SigID="3" Optional="true">1633</Input>
+					<Input Name="QueueSound" SigID="4" Optional="true">1634</Input>
+					<Input Name="Message" SigID="5" Optional="false">2046</Input>
+					<Input Name="duration" SigID="6" Optional="false">2047</Input>
+				</Effect>
+				<Effect ID="1129" Type="PlaySoundFile" DBID="1084" Version="1" CommentOut="false">
+					<Input Name="FileName" SigID="1" Optional="false">2048</Input>
+					<Input Name="Player" SigID="2" Optional="true">1740</Input>
+				</Effect>
+				<Effect ID="1130" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2003</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2220</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1131" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2004</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2220</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1132" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2250</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="273" Name="KotH Rotate Slot 4" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="false" X="1200" Y="920" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And />
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1133" Type="SetPosition" DBID="537" Version="3" CommentOut="false">
+					<Input Name="Object" SigID="3" Optional="true">2041</Input>
+					<Input Name="Unit" SigID="4" Optional="true">2050</Input>
+					<Input Name="Position" SigID="2" Optional="false">2221</Input>
+				</Effect>
+				<Effect ID="1134" Type="CreateSquad" DBID="36" Version="7" CommentOut="false">
+					<Input Name="ProtoSquad" SigID="1" Optional="false">885</Input>
+					<Input Name="CreateLocation" SigID="2" Optional="false">2221</Input>
+					<Input Name="Facing" SigID="12" Optional="true">887</Input>
+					<Input Name="SquadOwner" SigID="3" Optional="false">888</Input>
+					<Input Name="FlyInStart" SigID="8" Optional="true">889</Input>
+					<Input Name="FlyInEnd" SigID="9" Optional="true">890</Input>
+					<Input Name="RallyPoint" SigID="10" Optional="true">891</Input>
+					<Input Name="AttackMoveRallyPoint" SigID="11" Optional="true">892</Input>
+					<Output Name="CreatedSquad" SigID="4" Optional="true">2038</o>
+					<Output Name="AddToSquadList" SigID="5" Optional="true">894</o>
+					<Output Name="SquadListClearExisting" SigID="6" Optional="true">895</o>
+				</Effect>
+				<Effect ID="1135" Type="SetCTFFlag" DBID="1076" Version="1" CommentOut="false">
+					<Input Name="Squad" SigID="1" Optional="false">2038</Input>
+				</Effect>
+				<Effect ID="1136" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2221</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2001</o>
+				</Effect>
+				<Effect ID="1137" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2003</Input>
+					<Input Name="Location" SigID="2" Optional="true">2221</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1138" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2004</Input>
+					<Input Name="Location" SigID="2" Optional="true">2221</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1139" Type="ShowMessage" DBID="904" Version="1" CommentOut="false">
+					<Input Name="Player" SigID="1" Optional="true">1631</Input>
+					<Input Name="PlayerList" SigID="2" Optional="true">68</Input>
+					<Input Name="Sound" SigID="3" Optional="true">1633</Input>
+					<Input Name="QueueSound" SigID="4" Optional="true">1634</Input>
+					<Input Name="Message" SigID="5" Optional="false">2046</Input>
+					<Input Name="duration" SigID="6" Optional="false">2047</Input>
+				</Effect>
+				<Effect ID="1140" Type="PlaySoundFile" DBID="1084" Version="1" CommentOut="false">
+					<Input Name="FileName" SigID="1" Optional="false">2048</Input>
+					<Input Name="Player" SigID="2" Optional="true">1740</Input>
+				</Effect>
+				<Effect ID="1141" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2003</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2221</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1142" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2004</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2221</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1143" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2250</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="274" Name="KotH Rotate Slot 5" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="false" X="1200" Y="1000" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And />
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1144" Type="SetPosition" DBID="537" Version="3" CommentOut="false">
+					<Input Name="Object" SigID="3" Optional="true">2041</Input>
+					<Input Name="Unit" SigID="4" Optional="true">2050</Input>
+					<Input Name="Position" SigID="2" Optional="false">2222</Input>
+				</Effect>
+				<Effect ID="1145" Type="CreateSquad" DBID="36" Version="7" CommentOut="false">
+					<Input Name="ProtoSquad" SigID="1" Optional="false">885</Input>
+					<Input Name="CreateLocation" SigID="2" Optional="false">2222</Input>
+					<Input Name="Facing" SigID="12" Optional="true">887</Input>
+					<Input Name="SquadOwner" SigID="3" Optional="false">888</Input>
+					<Input Name="FlyInStart" SigID="8" Optional="true">889</Input>
+					<Input Name="FlyInEnd" SigID="9" Optional="true">890</Input>
+					<Input Name="RallyPoint" SigID="10" Optional="true">891</Input>
+					<Input Name="AttackMoveRallyPoint" SigID="11" Optional="true">892</Input>
+					<Output Name="CreatedSquad" SigID="4" Optional="true">2038</o>
+					<Output Name="AddToSquadList" SigID="5" Optional="true">894</o>
+					<Output Name="SquadListClearExisting" SigID="6" Optional="true">895</o>
+				</Effect>
+				<Effect ID="1146" Type="SetCTFFlag" DBID="1076" Version="1" CommentOut="false">
+					<Input Name="Squad" SigID="1" Optional="false">2038</Input>
+				</Effect>
+				<Effect ID="1147" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2222</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2001</o>
+				</Effect>
+				<Effect ID="1148" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2003</Input>
+					<Input Name="Location" SigID="2" Optional="true">2222</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1149" Type="Revealer" DBID="285" Version="3" CommentOut="false">
+					<Input Name="Owner" SigID="1" Optional="false">2004</Input>
+					<Input Name="Location" SigID="2" Optional="true">2222</Input>
+					<Input Name="LocationList" SigID="8" Optional="true">2044</Input>
+					<Input Name="LOS" SigID="4" Optional="false">1295</Input>
+					<Input Name="Lifespan" SigID="3" Optional="true">1296</Input>
+					<Output Name="CreatedRevealer" SigID="5" Optional="true">2053</o>
+					<Output Name="AddToObjectList" SigID="6" Optional="true">2042</o>
+					<Output Name="ClearExisting" SigID="7" Optional="true">2043</o>
+				</Effect>
+				<Effect ID="1150" Type="ShowMessage" DBID="904" Version="1" CommentOut="false">
+					<Input Name="Player" SigID="1" Optional="true">1631</Input>
+					<Input Name="PlayerList" SigID="2" Optional="true">68</Input>
+					<Input Name="Sound" SigID="3" Optional="true">1633</Input>
+					<Input Name="QueueSound" SigID="4" Optional="true">1634</Input>
+					<Input Name="Message" SigID="5" Optional="false">2046</Input>
+					<Input Name="duration" SigID="6" Optional="false">2047</Input>
+				</Effect>
+				<Effect ID="1151" Type="PlaySoundFile" DBID="1084" Version="1" CommentOut="false">
+					<Input Name="FileName" SigID="1" Optional="false">2048</Input>
+					<Input Name="Player" SigID="2" Optional="true">1740</Input>
+				</Effect>
+				<Effect ID="1152" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2003</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2222</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1153" Type="FlareMinimapNormal" DBID="135" Version="2" CommentOut="false">
+					<Input Name="FlaringPlayer" SigID="1" Optional="false">2004</Input>
+					<Input Name="FlareLocation" SigID="2" Optional="false">2222</Input>
+					<Input Name="FlareType" SigID="3" Optional="true">2045</Input>
+				</Effect>
+				<Effect ID="1154" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2250</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="280" Name="KotH Selector" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="false" X="1000" Y="700" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="240" Type="TriggerActiveTime" DBID="7" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="CompareType" SigID="1" Optional="false">755</Input>
+						<Input Name="CompareTime" SigID="2" Optional="false">2037</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1155" Type="RandomCount" DBID="178" Version="1" CommentOut="false">
+					<Input Name="Min" SigID="1" Optional="true">2232</Input>
+					<Input Name="Max" SigID="2" Optional="true">2233</Input>
+					<Output Name="Random" SigID="3" Optional="false">2230</o>
+				</Effect>
+				<Effect ID="1156" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2256</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="281" Name="KotH Dispatch 1" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="1100" Y="750" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="241" Type="CompareInteger" DBID="14" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="FirstInteger" SigID="1" Optional="false">2230</Input>
+						<Input Name="CompareType" SigID="2" Optional="false">333</Input>
+						<Input Name="SecondInteger" SigID="3" Optional="false">2240</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1157" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2251</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse>
+				<Effect ID="1158" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2257</Input>
+				</Effect>
+			</TriggerEffectsOnFalse>
+		</Trigger>
+		<Trigger ID="282" Name="KotH Dispatch 2" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="1100" Y="800" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="242" Type="CompareInteger" DBID="14" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="FirstInteger" SigID="1" Optional="false">2230</Input>
+						<Input Name="CompareType" SigID="2" Optional="false">333</Input>
+						<Input Name="SecondInteger" SigID="3" Optional="false">2241</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1159" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2252</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse>
+				<Effect ID="1160" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2258</Input>
+				</Effect>
+			</TriggerEffectsOnFalse>
+		</Trigger>
+		<Trigger ID="283" Name="KotH Dispatch 3" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="1100" Y="850" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="243" Type="CompareInteger" DBID="14" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="FirstInteger" SigID="1" Optional="false">2230</Input>
+						<Input Name="CompareType" SigID="2" Optional="false">333</Input>
+						<Input Name="SecondInteger" SigID="3" Optional="false">2242</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1161" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2253</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse>
+				<Effect ID="1162" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2259</Input>
+				</Effect>
+			</TriggerEffectsOnFalse>
+		</Trigger>
+		<Trigger ID="284" Name="KotH Dispatch 4" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="1100" Y="900" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="244" Type="CompareInteger" DBID="14" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="FirstInteger" SigID="1" Optional="false">2230</Input>
+						<Input Name="CompareType" SigID="2" Optional="false">333</Input>
+						<Input Name="SecondInteger" SigID="3" Optional="false">2243</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1163" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2254</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse>
+				<Effect ID="1164" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2260</Input>
+				</Effect>
+			</TriggerEffectsOnFalse>
+		</Trigger>
+		<Trigger ID="285" Name="KotH Dispatch 5" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="1100" Y="950" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="245" Type="CompareInteger" DBID="14" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="FirstInteger" SigID="1" Optional="false">2230</Input>
+						<Input Name="CompareType" SigID="2" Optional="false">333</Input>
+						<Input Name="SecondInteger" SigID="3" Optional="false">2244</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1165" Type="TriggerActivate" DBID="31" Version="1" CommentOut="false">
+					<Input Name="Trigger" SigID="1" Optional="false">2255</Input>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse>
+			</TriggerEffectsOnFalse>
+		</Trigger>
+		<Trigger ID="290" Name="KotH MapInit TM" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="200" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="246" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2200</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1166" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2100</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1167" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2101</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1168" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2102</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1169" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2103</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1170" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2104</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="291" Name="KotH MapInit Chasms" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="260" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="247" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2201</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1171" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2105</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1172" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2106</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1173" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2107</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1174" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2108</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1175" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2109</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="292" Name="KotH MapInit Tundra" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="320" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="248" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2202</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1176" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2110</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1177" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2111</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1178" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2112</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1179" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2113</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1180" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2114</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="293" Name="KotH MapInit BG" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="380" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="249" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2203</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1181" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2115</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1182" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2116</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1183" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2117</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1184" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2118</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1185" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2119</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="294" Name="KotH MapInit Labyrinth" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="440" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="250" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2204</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1186" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2120</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1187" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2121</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1188" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2122</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1189" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2123</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1190" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2124</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="295" Name="KotH MapInit FortDeen" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="500" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="251" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2205</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1191" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2125</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1192" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2126</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1193" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2127</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1194" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2128</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1195" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2129</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="296" Name="KotH MapInit BeaconHill" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="560" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="252" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2206</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1196" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2130</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1197" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2131</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1198" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2132</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1199" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2133</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1200" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2134</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="297" Name="KotH MapInit Beasleys" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="620" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="253" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2207</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1201" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2135</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1202" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2136</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1203" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2137</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1204" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2138</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1205" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2139</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="298" Name="KotH MapInit Docks" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="680" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="254" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2208</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1206" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2140</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1207" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2141</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1208" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2142</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1209" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2143</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1210" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2144</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="299" Name="KotH MapInit RedRiver" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="740" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="255" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2209</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1211" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2145</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1212" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2146</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1213" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2147</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1214" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2148</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1215" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2149</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="300" Name="KotH MapInit Pirth" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="800" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="256" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2210</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1216" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2150</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1217" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2151</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1218" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2152</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1219" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2153</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1220" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2154</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="301" Name="KotH MapInit Release" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="860" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="257" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2211</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1221" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2155</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1222" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2156</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1223" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2157</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1224" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2158</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1225" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2159</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="302" Name="KotH MapInit Repo" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="920" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="258" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2212</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1226" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2160</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1227" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2161</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1228" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2162</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1229" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2163</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1230" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2164</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="303" Name="KotH MapInit Frozen" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="980" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="259" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2213</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1231" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2165</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1232" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2166</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1233" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2167</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1234" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2168</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1235" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2169</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="304" Name="KotH MapInit Barrens" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="1040" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="260" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2214</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1236" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2170</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1237" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2171</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1238" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2172</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1239" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2173</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1240" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2174</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="305" Name="KotH MapInit Glacial" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="1100" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="261" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2215</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1241" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2175</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1242" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2176</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1243" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2177</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1244" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2178</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1245" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2179</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="306" Name="KotH MapInit Exile" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="1160" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="262" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2216</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1246" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2180</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1247" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2181</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1248" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2182</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1249" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2183</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1250" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2184</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
+				</Effect>
+			</TriggerEffectsOnTrue>
+			<TriggerEffectsOnFalse />
+		</Trigger>
+		<Trigger ID="307" Name="KotH MapInit Crevice" Active="false" EvaluateFrequency="0" EvalLimit="1" CommentOut="false" ConditionalTrigger="true" X="1220" Y="500" GroupID="-1" TemplateID="-1">
+			<TriggerConditions>
+				<And>
+					<Condition ID="263" Type="IsMap" DBID="1087" Version="1" CommentOut="false" Invert="false" Async="false" AsyncParameterKey="0">
+						<Input Name="MapName" SigID="1" Optional="false">2217</Input>
+					</Condition>
+				</And>
+			</TriggerConditions>
+			<TriggerEffectsOnTrue>
+				<Effect ID="1251" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2185</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2049</o>
+				</Effect>
+				<Effect ID="1252" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2186</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2032</o>
+				</Effect>
+				<Effect ID="1253" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2187</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2220</o>
+				</Effect>
+				<Effect ID="1254" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2188</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2221</o>
+				</Effect>
+				<Effect ID="1255" Type="CopyLocation" DBID="99" Version="1" CommentOut="false">
+					<Input Name="LocationSource" SigID="1" Optional="false">2189</Input>
+					<Output Name="LocationCopy" SigID="2" Optional="false">2222</o>
 				</Effect>
 			</TriggerEffectsOnTrue>
 			<TriggerEffectsOnFalse />

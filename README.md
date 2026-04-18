@@ -4,33 +4,40 @@ Custom skirmish game modes for Halo Wars: Definitive Edition, built through trig
 
 ## Game Modes
 
-### King of the Hill (V1 playable)
-Classic Halo 2-style territory control. Hold the active zone to score — first team to 200 wins. The hill rotates between positions every 90 seconds with audio/visual notifications. Supports 1v1, 2v2, and 3v3.
+### King of the Hill (V3 — multi-map)
+Classic Halo 2 Crazy King-style territory control. Hold the active zone to score — first team to 200 wins. The hill randomly rotates between 5 preset positions every 90 seconds with audio/visual notifications. Supports 1v1, 2v2, and 3v3.
 
 **What works:**
-- 2 rotating hills on Terminal Moraine (center + east bridge)
+- **18 maps supported** — per-map hill coordinates selected via IsMap branching on Init
+- 5 hills per map, **randomly selected** each rotation (RandomCount 1..5 + dispatch chain)
 - Scoring via hijacked CTF HUD (setCTFCount)
 - AI pursues the active hill via SetCTFFlag engine behavior
 - Covenant doughnut ground marker moves between hills via SetPosition
 - Sound, on-screen message, and minimap flare on each rotation
 - Win condition triggers game-over screen
 
+**Supported maps:**
+Terminal Moraine, Chasms, Tundra, Blood Gulch, Labyrinth, Fort Deen, Beacon Hill, Beasley's Plateau, The Docks, Red River, Pirth Outskirts, Release, Repository, Frozen Valley, Barrens, Glacial Ravine, Exile, Crevice.
+
 **Known issues:**
 - Orphan sentinel squads accumulate at each rotation (engine protects CTF flag squads from Kill/Destroy)
 - Stock CTF flag spawns from ERA EditorData (~60-90s) — can't be prevented, only redirected
 - "Capture 3 Flags" welcome message from stock CTF
 - No contested logic yet — both teams can score simultaneously
+- No no-repeat guard — random selector can pick the same hill twice in a row (~1 in 5 rotations)
 - Minimap flares and revealers fire for team leader only on each rotation (teams share FoW in HW, so vision is shared; flare is cosmetic)
+- Terminal Moraine Hill 5 is a geometric mirror guess — may need tuning in playtest
+- Beacon Hill internal name unverified (may actually be Memorial Basin's internal name)
 
 **Built on CTF mode** — required for setCTFCount HUD and SetCTFFlag AI lure. Skirmish mode was tested and rejected (no HUD, no flag spawning).
 
 #### Roadmap
 - Contested detection (both teams present = nobody scores)
-- 5-hill rotation across Terminal Moraine
+- No-repeat guard on random selector (MathInt bump pattern)
 - Visual hill marker improvements (PowerGrant healing beam, obstruction ring)
 - Custom welcome message and announcer voice
-- Multi-map support via IsMap condition branching
 - Team-wide minimap flares and per-teammate revealers (cosmetic polish)
+- Verify per-map IsMap internal names (especially Beacon Hill)
 
 ### Drag the Reactor (on hold)
 CTF variant using the reactor core from campaign mission 14. Hitch the reactor with your Elephant and tow it to your base to score.
